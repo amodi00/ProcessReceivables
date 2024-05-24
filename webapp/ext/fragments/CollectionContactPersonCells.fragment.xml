@@ -1,0 +1,11 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<VBox>
+		<ObjectIdentifier id="CollsContPersObjIdent" title="{path: 'CollsCntctIsDfltCntctPersn', formatter: '._formatter.isDefaultContact'}"/>
+		<ObjectMarker id="CollsContPersObjMark" visible="{= !${IsActiveEntity}}" type="Draft" press="onDraftClick"/>
+	</VBox>
+</core:FragmentDefinition>

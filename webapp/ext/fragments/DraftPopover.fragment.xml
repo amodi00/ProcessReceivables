@@ -1,0 +1,23 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Popover
+		title="{parts: [{path: 'admin>/IsActiveEntity'}, {path: 'admin>/HasDraftEntity'}, {path : 'general>/InProcessByUser'}], formatter: '._formatter.formatDraftLockText' }"
+		showHeader="true" placement="Auto" contentWidth="15.625rem" verticalScrolling="false"
+		class="sapSmartTemplatesListReportPopover sapUiContentPadding">
+		<endButton>
+			<Button icon="sap-icon://decline" tooltip="{i18n>CLOSE}" press="closeDraftAdminPopover"/>
+		</endButton>
+		<VBox class="sapUiContentPadding">
+			<VBox visible="{= !${admin>/IsActiveEntity} === true &amp;&amp; !${general>/LastChangeDateTime}}">
+				<Text id="objectNoDataText" text="{i18n>LOCKED_OBJECT_POPOVER_NO_DATA_TEXT}"></Text>
+			</VBox>
+			
+			<Text id="objectChangedText" visible="{= !!${general>/LastChangeDateTime}}"
+				text="{parts: [{path: 'i18n>LOCKED_OBJECT_POPOVER_CHANGED_AT'}, {path: 'general>/LastChangeDateTime', type: 'sap.ui.model.type.DateTime'}], formatter:'._formatter.formatText'}"></Text>
+		</VBox>
+	</Popover>
+</core:FragmentDefinition>

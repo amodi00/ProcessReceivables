@@ -1,0 +1,20 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition id="postingNoteListFragment" class="sapUISizeCompact" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m">
+	<Popover
+		title="{i18n>PostingNoteListTitle}"
+		showHeader="true" placement="Auto" contentWidth="45rem" verticalScrolling="true"
+		class="sapSmartTemplatesListReportPopover sapUiContentPadding">
+		<endButton>
+			<Button id="btnPostingNoteListClose" icon="sap-icon://decline" tooltip="{i18n>CLOSE}" press="onPostingNoteListClose"/>
+		</endButton>
+		<List id="postingNoteList" items="{NoteHistory>/}" growing="true" growingThreshold="5" growingScrollToLoad="false" noDataText="{i18n>NoDataText}">
+			<FeedListItem id="postingNoteInput" sender="{NoteHistory>UserDescription}" senderPress="onUserDescriptionClick" text="{NoteHistory>NoteText}" convertLinksToAnchorTags="All"
+				timestamp="{NoteHistory>CreationDateTime}" info="{NoteHistory>NoteDescription}" showIcon="true" activeIcon="false" icon="{NoteHistory>NoteIconURL}"/>
+		</List>
+	</Popover>
+</core:FragmentDefinition>

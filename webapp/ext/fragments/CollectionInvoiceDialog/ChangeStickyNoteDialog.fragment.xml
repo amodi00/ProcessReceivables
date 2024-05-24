@@ -1,0 +1,52 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition
+    id="changeStickyNoteFragment"
+	class="sapUISizeCompact"
+	xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m">
+	<Dialog id="changeStickyNoteDlg"
+		title="{path: '/headerText'}">
+		<beginButton>
+			<Button
+				id="changeStickNoteOK"
+				press="onChangeStickyNoteConfirm"
+				type="Emphasized"
+				text="{i18n>OK}" />
+		</beginButton>
+		<endButton>
+			<Button
+				id="changeStickNoteCancel"
+				press="onChangeStickyNoteCancel"
+				text="{i18n>CANCEL}" />
+		</endButton>
+		<content>
+			<form:SimpleForm
+			    id="changestickyNoteForm"
+			    editable="true"
+				breakpointL="1024"
+				breakpointM="600"
+				columnsL="2"
+				columnsM="2"
+				labelSpanL="2"
+				labelSpanM="2"
+				layout="ResponsiveGridLayout"
+				title="">
+				<form:content>
+					<TextArea id="changeStickyNoteTextArea" 
+							  placeholder="{i18n>ChangeStickyNotePlaceholder}"
+							  value="{path: '/noteText', type:'fin.ar.process.receivables.ext.utils.InputValidator'}"
+							  valueState = "{path: '/noteTextState'}"
+							  valueStateText="{i18n>TooManyInput}"
+							  growing="true">
+						
+					</TextArea>
+				</form:content>
+			</form:SimpleForm>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

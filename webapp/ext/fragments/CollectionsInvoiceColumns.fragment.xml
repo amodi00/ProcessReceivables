@@ -1,0 +1,59 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" core:require="{ DateTimeType: 'sap/ui/model/odata/type/DateTime', TimeType: 'sap/ui/model/odata/type/Time', DateType: 'sap/ui/model/odata/type/Date' }">
+
+	<Column id="AccountingDocumentXColHeader">
+		<Text id="AccountingDocumentXColLabel" text="{i18n>AccountingDocumentXColHeader}"/>
+		<customData>
+			<core:CustomData key="p13nData"
+				value='\{"columnKey": "AccountingDocumentXCol", "columnIndex" : "0", "sortProperty": "AccountingDocument", "filterProperty": "AccountingDocument", "leadingProperty": "AccountingDocument"}'/>
+		</customData>
+	</Column>
+
+	<Column id="PostingKeyColHeader">
+		<Text id="PostingKeyColLabel" text="{i18n>PostingKeyColHeader}"/>
+		<customData>
+			<core:CustomData key="p13nData"
+				value='\{"columnKey": "PostingKeyCol", "columnIndex" : "2", "sortProperty": "PostingKey", "filterProperty": "PostingKey", "leadingProperty": "PostingKey"}'/>
+		</customData>
+	</Column>
+      <Column id="LatePaymentRiskColHeader" visible="false">
+		<Text id="LatePaymentRiskColLabel" text="{i18n>LatePaymentRiskColHeader}"/>
+		<customData>
+			<core:CustomData key="p13nData"
+				value='\{"columnKey": "LatePaymentRiskCol", "columnIndex" : "300", "sortProperty": "LatePaymentRiskName", "filterProperty": "LatePaymentRiskName", "leadingProperty": "LatePaymentRiskName"}'/>
+		</customData>
+	</Column>
+  
+	<Column id="BillingDocumentColHeader">
+		<Text id="BillingDocumentColText" text="{i18n>BillingDocumentColHeader}"/>
+		<customData>
+			<core:CustomData key="p13nData"
+				value='\{"columnKey": "BillingDocumentCol", "columnIndex" : "11", "sortProperty": "BillingDocument", "filterProperty": "BillingDocument", "leadingProperty": "BillingDocument"}'/> 
+		</customData>
+	</Column>
+	<Column id="ResubmissionColHeader">
+		<Text id="ResubmissionColText" text="{i18n>ResubmissionColHeader}"/>
+		<customData>
+			<core:CustomData key="p13nData"
+				value='\{"columnKey": "ResubmissionCol", "columnIndex" : "12", "sortProperty": "ResubmissionDueDate", "filterProperty": "ResubmissionDueDate", "leadingProperty": "ResubmissionDueDate"}'/>
+		</customData>
+	</Column>
+	<Column id="DisputeCaseColHeader">
+		<Text id="DisputeCaseColText" text="{i18n>DisputeCaseColHeader}"/>
+		<customData>
+			<core:CustomData key="p13nData"
+				value='\{"columnKey": "DiputeCaseCol", "columnIndex" : "13", "sortProperty": "DisputeCase", "filterProperty": "DisputeCase", "leadingProperty": "DisputeCase"}'/>
+		</customData>
+	</Column>
+	<Column id="PromiseToPayColHeader">
+		<Text id="PromiseToPayText" text="{i18n>PromiseToPayColHeader}"/>
+		<customData>
+			<core:CustomData key="p13nData"
+				value='\{"columnKey": "PromiseToPayCol", "columnIndex" : "14", "sortProperty": "PromiseToPay", "filterProperty": "PromiseToPay", "leadingProperty": "PromiseToPay"}'/>
+		</customData>
+	</Column>
+</core:FragmentDefinition>

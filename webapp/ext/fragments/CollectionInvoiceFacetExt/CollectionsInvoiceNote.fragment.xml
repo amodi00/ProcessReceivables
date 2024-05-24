@@ -1,0 +1,27 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<VBox>
+		<FeedInput id="CollsInvNoteFeedInput" 
+				   post="onPostInvoiceNote" 
+				   showIcon="false"/>
+		<List id="CollsInvNoteList"
+			  showSeparators="Inner" 
+			  items="{ path: 'to_CollectionsInvoiceNote', parameters: {expand: 'to_CreatedByContactCard'}, sorter: { path: 'CreationDateTime', descending: true }}"
+			  noDataText="{i18n>NoDataText}">
+			<FeedListItem id="CollsInvNoteFeedListItem"
+						  sender="{UserDescription}" 
+						  senderPress="onUserDescriptionClick" 
+						  activeIcon="false" 
+						  showIcon="true" 
+						  icon="{NoteIconURL}" 
+						  text="{NoteText}" 
+						  info="{NoteDescription}"
+						  convertLinksToAnchorTags="All"
+						  timestamp="{CreationDateTime}"/>
+		</List>
+	</VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,16 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+       xmlns="sap.m">
+       <Column id="BranchHeader">
+              <Text id="BusinessPartnerCol" text="{i18n>BusinessPartner}" />
+              <customData>
+                     <core:CustomData key="p13nData" 
+                            value='\{"columnKey": "Busin", "columnIndex" : "100", "sortProperty": "BusinessPartner",
+									 "filterProperty": "BusinessPartner"}' />
+              </customData>
+       </Column>
+</core:FragmentDefinition>

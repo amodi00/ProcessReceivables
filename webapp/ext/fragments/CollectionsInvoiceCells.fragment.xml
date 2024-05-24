@@ -1,0 +1,33 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartLink="sap.ui.comp.navpopover">
+
+	<smartLink:SmartLink id="AccountingDocumentLink" text="{AccountingDocument}" semanticObject="AccountingDocument" emphasized="true"
+		additionalSemanticObjects="Correspondence" beforePopoverOpens="onBeforeSemanticObjPopoverOpen"></smartLink:SmartLink>
+	<VBox>
+		<ObjectIdentifier id="postingKeyText" title="{path: 'PostingKey'}" text="{PostingKeyName}" titleActive="true" titlePress="onPostingKeyClick"/>
+    </VBox>
+        <VBox>
+		<ObjectIdentifier id="LatePaymentRiskText" title="{path: 'LatePaymentRiskName'}"  titleActive="true" titlePress="onLatePaymentRiskClick"/>
+    </VBox> 
+
+	<HBox id="HBOX">
+		<core:Icon id="BillingDocumentIcon" src="sap-icon://pdf-attachment" tooltip="{i18n>DisplayBillingDocument}" press="onBillingDocumentIconPress"
+			class="sapUiSmallMarginEnd" visible="{UICT_BillingDocumentIcon}"></core:Icon>
+		<smartLink:SmartLink id="BillingDocumentLink" text="{BillingDocument}" semanticObject="BillingDocument" enabled="true"
+			additionalSemanticObjects="Correspondence"/>
+	</HBox>
+	<smartLink:SmartLink
+		core:require="{ DateTimeType: 'sap/ui/model/odata/type/DateTime', TimeType: 'sap/ui/model/odata/type/Time', DateType: 'sap/ui/model/odata/type/Date' }"
+		id="resubmissionLink" text="{path : 'ResubmissionDueDate', type : 'sap.ui.model.type.Date', constraints: { displayFormat: 'Date'}}"
+		semanticObject="CollectionsResubmission" beforePopoverOpens="onBeforeSemanticObjPopoverOpen"></smartLink:SmartLink>
+	<Link text="{path: 'DisputeCase'}" press="onDisputeCaseClick"/>
+	<smartLink:SmartLink id="promiseToPayLink" text="{PromiseToPay}" semanticObject="PromiseToPay"
+		beforePopoverOpens="onBeforeSemanticObjPopoverOpen"></smartLink:SmartLink>
+    
+        	
+
+</core:FragmentDefinition>

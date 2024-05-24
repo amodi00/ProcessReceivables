@@ -1,0 +1,51 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<Popover
+	xmlns="sap.m"
+	xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data"
+	modal="false"
+	placement="Vertical"
+	showHeader="true"
+	title="{i18n>DueDateGrid}"
+	contentWidth="1200px"
+	contentHeight="500px">
+	<content>
+		<viz:VizFrame
+			id="DueDateGridChart"
+			uiConfig="{applicationSet:'fiori'}"
+			vizType="column"
+			vizProperties="{
+							title: {visible: false},
+							valueAxis: {title: {visible: 'true'}, label: {formatString: 'DueDateGridChartFormatAxisAmount'}},
+							categoryAxis: {title: {visible: false}},
+							interaction: {selectability: {mode: 'exclusive'} },
+							plotArea: {dataLabel: {visible: true, formatString: 'FormatAmountStandard'}},
+							legend: {visible: false},
+							general:{groupData: false}
+						}"
+			width="100%"
+		>
+			<viz:dataset>
+				<viz.data:FlattenedDataset data="{json>/DueDateGridItems}">
+					<viz.data:dimensions>
+						<viz.data:DimensionDefinition name="IsOverdue" value="{path: 'json>IsOverdue', formatter: '._formatter.formatOverDueText'}" />
+						<viz.data:DimensionDefinition name="FieldHorizontalAxisValue" value="{json>FieldHorizontalAxisValue}" />
+					</viz.data:dimensions>
+					<viz.data:measures>
+						<viz.data:MeasureDefinition name="{json>/ChartCurrency}" value="{json>AmountInCollsStrategyCurrency}" />
+					</viz.data:measures>
+				</viz.data:FlattenedDataset>
+			</viz:dataset>
+
+			<viz:feeds>
+				<viz.feeds:FeedItem uid="primaryValues" type="Measure" values="{json>/ChartCurrency}" />
+				<viz.feeds:FeedItem uid="axisLabels" type="Dimension" values="IsOverdue,FieldHorizontalAxisValue" />
+			</viz:feeds>
+		</viz:VizFrame>
+	</content>
+</Popover>

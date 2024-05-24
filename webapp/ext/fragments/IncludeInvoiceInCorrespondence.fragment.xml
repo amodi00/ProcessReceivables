@@ -1,0 +1,26 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition id="includeInvoiceInCorrespondence" class="sapUISizeCompact" xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form" xmlns="sap.m">
+	<Dialog id="includeInvoiceInCorrespondenceDialog" title="{i18n>ActionIncludeInvoiceInCorrespondence}">
+		<beginButton>
+			<Button id="btnIncludeInvoiceInCorrespondenceConfirm" press="onIncludeInvoiceInCorrespondenceConfirm" type="Emphasized"
+				text="{i18n>ActionIncludeInvoiceInCorrespondence}"/>
+		</beginButton>
+		<endButton>
+			<Button id="btnIncludeInvoiceInCorrespondenceCancel" press="onIncludeInvoiceInCorrespondenceCancel" text="{i18n>CANCEL}"/>
+		</endButton>
+		<content>
+			<form:SimpleForm maxContainerCols="1" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" columnsL="2" columnsM="2" 
+				breakpointL="1024" breakpointM="600">
+				<form:content>
+					<CheckBox text="{i18n>CreateBillingDocumentForInvoice}" selected="true" id="checkBoxCreateBillingDocument"/>
+					<CheckBox text="{i18n>IncludeInCorrespondence}" selected="true" id="checkBoxIncludeInCorrespondence"/>
+				</form:content>
+			</form:SimpleForm>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

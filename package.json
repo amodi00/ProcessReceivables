@@ -1,0 +1,41 @@
+{
+  "name": "fin.ar.process.receivables",
+  "version": "0.0.1",
+  "devDependencies": {
+    "@sapui5/ts-types": "1.71.x",
+    "@sap/ui5-builder-webide-extension": "1.0.x",
+    "@sap/approuter": "8.1.x",
+    "@sap/html5-repo-mock": "1.6.x",
+    "@ui5/cli": "^3.0.0",
+    "@sap/ux-ui5-tooling": "1",
+    "rimraf": "3.0.2",
+    "@sap/ux-specification": "UI5-1.97"
+  },
+  "scripts": {
+    "start-local_old": "node node_modules/@sap/html5-repo-mock/index.js",
+    "build_old": "ui5 build --include-task=generateManifestBundle generateCachebusterInfo",
+    "start": "fiori run --open \"test/flpSandbox.html?sap-client=200&sap-ui-xx-viewCache=false#ProcessReceivables-manage\"",
+    "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandboxMockServer.html?sap-client=200&sap-ui-xx-viewCache=false#ProcessReceivables-manage\"",
+    "start-noflp": "fiori run --open \"index.html?sap-client=200&sap-ui-xx-viewCache=false\"",
+    "start-variants-management": "fiori run --open \"preview.html?sap-client=200&sap-ui-xx-viewCache=false&fiori-tools-rta-mode=true&sap-ui-rta-skip-flex-validation=true#preview-app\"",
+    "build": "ui5 build -a --clean-dest --include-task=generateCachebusterInfo",
+    "deploy": "fiori verify",
+    "deploy-config": "fiori add deploy-config",
+    "start-mock": "fiori run --open \"test/flpSandboxMockServer.html?sap-client=200&sap-ui-xx-viewCache=false#ProcessReceivables-manage\""
+  },
+  "ui5": {
+    "dependencies": [
+      "@sap/ui5-builder-webide-extension"
+    ]
+  },
+  "private": true,
+  "sapux": true,
+  "sapuxLayer": "CUSTOMER_BASE",
+  "description": "",
+  "keywords": [
+    "ui5",
+    "openui5",
+    "sapui5"
+  ],
+  "main": "webapp/index.html"
+}

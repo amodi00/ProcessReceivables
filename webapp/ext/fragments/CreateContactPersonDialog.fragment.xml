@@ -1,0 +1,25 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition id="createContactPersonDialog" class="sapUISizeCompact" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns:form="sap.ui.comp.smartform" xmlns:button="sap.ui.comp.button">
+	<Dialog id="createContactPersonDlg" title="{i18n>CreateContactPersonInCollections}">
+
+		<buttons>
+			<Button id="createContactPersonOK" enabled="true" press="onCreateContactPersonDialogConfirm" type="Emphasized" text="{i18n>OK}"/>
+			<Button id="createContactPersonCancel" press="onCreateContactPersonCancel" text="{i18n>CANCEL}"/>
+			<Button id="createContactPersonHelp" press="onCreateContactPersonHelp" text="{i18n>Help}"/>
+		</buttons>
+		<content> 
+			<form:SmartForm id="createContactPersonSimpleForm" class="editableForm" editTogglable="false" editable="true">
+				<form:Group id="G1">
+					<form:GroupElement id="businessPartnerPersonInputGroupElement">
+						<smartField:SmartField id="businessPartnerPerson" value="{to_CollectionsContactForCreate/BusinessPartnerPerson}" editable="true"></smartField:SmartField>
+					</form:GroupElement> 
+				</form:Group>
+			</form:SmartForm>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

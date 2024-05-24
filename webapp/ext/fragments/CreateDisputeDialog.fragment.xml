@@ -1,0 +1,32 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition id="createDisputeFragment" class="sapUISizeCompact" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns="sap.m">
+	<Dialog id="createDisputeDlg" title="{i18n>createDisputeTitle}">
+		<beginButton>
+			<Button id="btnCreateDisputeConfirmDialog" press="onCreateCustomerDisputeConfirm" type="Emphasized" text="{i18n>CreateDispute}"/>
+		</beginButton>
+		<endButton>
+			<Button id="btnCreateDisputeCancelDialog" press="onCreateCustomerDisputeCancel" text="{i18n>CANCEL}"/>
+		</endButton>
+		<content>
+			<form:SimpleForm maxContainerCols="1" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2"
+				columnsL="2" columnsM="2" breakpointL="1024" breakpointM="600">
+				<form:content>
+					<Label id="inputCompanyLabel"
+						labelFor="inputCompany"
+						required="true"
+						text="{i18n>CompanyCode}"/>
+					<ComboBox id="inputCompany" selectionChange="onCompanySelectionChanged" items="{localJson>/Companies}"
+						selectedKey="{localJson>/SelectedCompany}">
+						<items>
+							<core:Item key="{localJson>CompanyCode}" text="{localJson>CompanyCodeName}"></core:Item>
+						</items> 
+					</ComboBox>
+				</form:content>
+			</form:SimpleForm>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

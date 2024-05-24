@@ -1,0 +1,38 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition id="RelatedDisputeCaseListFragement" class="sapUISizeCompact" xmlns:core="sap.ui.core"
+	xmlns:smartLink="sap.ui.comp.navpopover" xmlns:form="sap.ui.layout.form" xmlns:smartTable="sap.ui.comp.smarttable" xmlns="sap.m">
+	<Popover showHeader="false" placement="Auto" contentWidth="120rem" verticalScrolling="true"
+		class="sapSmartTemplatesListReportPopover sapUiContentPadding" resizable="true">
+		<endButton>
+			<Button id="btnRelatedDisputeCasesClose" icon="sap-icon://decline" tooltip="{i18n>CLOSE}" press="onRelatedDisputeCasesClose"/>
+		</endButton>
+		<smartTable:SmartTable id="RelatedDisputeCasesTable" entitySet="CollsInvoiceRelatedDsputCase" tableType="ResponsiveTable"
+			useExportToExcel="true" useVariantManagement="false" useTablePersonalisation="false" header="{i18n>RelatedDisputeCaseItems}" showRowCount="true"
+			persistencyKey="RelatedDisputeCasesTablePersKey" enableAutoBinding="true" class="sapUiResponsiveContentPadding"
+			tableBindingPath="to_LinkedDisputeCase"
+			requestAtLeastFields="LogicalSystem,ObjectType,ObjectKey,CaseUniqueID,CaseID,Customer,CompanyCode,DisputeCaseUUID">
+			<Table>
+				<columns>
+					<Column hAlign="Left">
+						<Text id="DisputeCaseColText" text="{i18n>DisputeCaseColHeader}"/>
+						<customData>
+							<core:CustomData key="p13nData"
+								value='\{"columnKey": "DiputeCaseCol", "columnIndex" : "0", "sortProperty": "CaseID", "filterProperty": "CaseID"}'/>
+						</customData>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<smartLink:SmartLink id="disputeCaseLink" text="{CaseID}" semanticObject="DisputeCase"></smartLink:SmartLink>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</smartTable:SmartTable>
+	</Popover>
+</core:FragmentDefinition>

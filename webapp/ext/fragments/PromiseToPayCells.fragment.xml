@@ -1,0 +1,17 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<VBox>
+		<ObjectIdentifier id="p2pCaseIdText" title="{path: 'CaseID'}"/>
+		<ObjectMarker id="p2pCaseIdDraftMarker" visible="{= !${IsActiveEntity}}" type="Draft"
+			press="onDraftClick"/>
+		<!--<ObjectMarker visible="{= !!${DraftAdministrativeData}  &amp;&amp; ${DraftAdministrativeData>/DraftIsLastChangedByMe} === false &amp;&amp; !!${DraftAdministrativeData>InProcessByUser}}" -->
+		<!--                                          type="LockedBy" additionalInfo="{DraftAdministrativeData>InProcessByUserDescription}" press="onDraftClick" />-->
+		<!--<ObjectMarker visible="{= !!${DraftAdministrativeData}  &amp;&amp; ${DraftAdministrativeData>/DraftIsLastChangedByMe} === false &amp;&amp; ${DraftAdministrativeData>InProcessByUser} === ''}" -->
+		<!--                                          type="UnsavedBy" additionalInfo="{DraftAdministrativeData>LastChangedByUserDescription}" press="onDraftClick" />-->
+		<!--<Link visible="{HasDraftEntity}" text="Draft" press="onDraftClick"></Link>-->
+	</VBox>
+</core:FragmentDefinition>

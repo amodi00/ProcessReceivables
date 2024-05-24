@@ -1,0 +1,13 @@
+{
+  "application": "fin.ar.process.receivables",
+  "version": "12.0.1",
+  "buildNumber": "34",
+  "buildId": "34",
+  "branch": "s4op-2023sp0",
+  "revision": "f5ada4be28c006a21533f679d9c5cdeb88504ffc",
+  "GitURL": "",
+  "buildStatus": "P",
+  "translationComplete": "",
+  "cidi": "",
+  "cfdCM": ""
+}

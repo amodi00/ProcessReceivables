@@ -1,0 +1,47 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<Popover xmlns="sap.m" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data"
+	modal="false" placement="Vertical" showHeader="true" title="{i18n>PaymentTrendTitle}"
+	contentWidth="1200px" contentHeight="500px">
+
+	<content>
+
+		<viz:VizFrame
+			id="PaymentTrendChart"
+			uiConfig="{applicationSet:'fiori'}"
+			vizType="line"
+			vizProperties="{
+							title: {visible: false},
+							valueAxis: {title: {visible: 'true'}, label: {formatString: 'PaymentTrendChartAxisAmount'}},
+							categoryAxis: {title: {visible: false}},
+							interaction: {selectability: {mode: 'exclusive'} },
+							plotArea: {dataLabel: {visible: true, formatString: 'FormatWeightedDueDays'}},
+							dataLabel: {visible: 'true'},
+							legend: {visible: false},
+							general:{groupData: false}
+							}"
+			width="100%">
+
+			<viz:dataset>
+				<viz.data:FlattenedDataset data="{json>/PaymentTrendItems}">
+					<viz.data:dimensions>
+						<viz.data:DimensionDefinition name="Year" value="{path: 'json>FiscalYear'}" />
+						<viz.data:DimensionDefinition name="CalendarMonth" value="{path:'json>FiscalMonth'}" />
+					</viz.data:dimensions>														
+					<viz.data:measures>
+						<viz.data:MeasureDefinition name="{json>/ValueAxisTitle}" value="{path: 'json>NetDueArrearsDays'}" />
+					</viz.data:measures>
+				</viz.data:FlattenedDataset>
+			</viz:dataset>
+			<viz:feeds>
+				<viz.feeds:FeedItem uid="primaryValues" type="Measure" values="{json>/ValueAxisTitle}" />
+				<viz.feeds:FeedItem uid="axisLabels" type="Dimension" values="Year,CalendarMonth" />
+			</viz:feeds>
+
+		</viz:VizFrame>
+
+	</content>
+</Popover>

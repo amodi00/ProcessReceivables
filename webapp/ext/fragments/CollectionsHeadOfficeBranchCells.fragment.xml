@@ -1,0 +1,19 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartLink="sap.ui.comp.navpopover">
+	<VBox>
+	<smartLink:SmartLink
+		id="headQuarterLink" text="{HeadOffice}"
+		semanticObject="Customer" beforePopoverOpens="onBeforeSemanticObjPopoverOpen" navigationTargetsObtained="onCustomerTargetsObtained" class="linkBold sapUiTinyMarginBottom"></smartLink:SmartLink>
+		<Text id="headQuarterDescription" text="{HeadOfficeName}"/>
+	</VBox>
+	<VBox>
+	<smartLink:SmartLink
+		id="branchLink" text="{BranchAccount}"
+		semanticObject="Customer" beforePopoverOpens="onBeforeSemanticObjPopoverOpen" navigationTargetsObtained="onCustomerTargetsObtained" class="linkBold sapUiTinyMarginBottom"></smartLink:SmartLink>
+		<Text id="branchDescription" text="{BranchName}"/>
+	</VBox>
+</core:FragmentDefinition>

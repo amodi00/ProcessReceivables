@@ -1,0 +1,73 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition
+    id="createDisputeCaseFragment"
+	class="sapUISizeCompact"
+	xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m">
+	<Dialog id="createDisputeCaseDlg"
+		title="{i18n>CreateDisputeParamTitle}">
+		<beginButton>
+			<Button
+				id="createDisputeCasesOK"
+				enabled="{DatePickerValidationModel>/enabled}"
+				press="onCreateDisputeCaseDlgConfirm"
+				type="Emphasized"
+				text="{i18n>OK}" />
+		</beginButton>
+		<endButton>
+			<Button
+				id="createDisputeCasesCancel"
+				press="onCreateDisputeCaseDlgClose"
+				text="{i18n>CANCEL}" />
+		</endButton>
+		<content>
+			<form:SimpleForm
+			    id="promiseToPaySimpleForm"
+			    editable="true"
+				breakpointL="1024"
+				breakpointM="600"
+				columnsL="2"
+				columnsM="2"
+				labelSpanL="2"
+				labelSpanM="2"
+				layout="ResponsiveGridLayout"
+				title="">
+				<form:content>
+					<Label
+					    id="createDisputeCasesCompanyCode"
+						labelFor="selectCompanyCode"
+						required="true"
+						visible="{path: '/CompanyCodeVisible'}"
+						text="{i18n>CompanyCode}" />
+					<Select
+						id="selectCompanyCode"
+						items="{path: '/Companies'}"
+						forceSelection="false"
+						visible="{path: '/CompanyCodeVisible'}"
+						width="100%" >
+						<core:Item key="{CompanyCode}" text="{parts: [{path: 'CompanyCode'}, {path: 'CompanyCodeName'}], formatter: '._formatter.concatTexts'}" />
+					</Select>	
+					<Label
+					    id="createDisputeCasesCurrency"
+						labelFor="selectCurrency"
+						required="true"
+						visible="{path: '/CurrencyVisible'}"
+						text="{i18n>Currency}" />
+					<Select
+						id="selectCurrency"
+						items="{path: '/Currencies'}"
+						forceSelection="false"
+						visible="{path: '/CurrencyVisible'}"
+						width="100%" >
+						<core:Item key="{Currency}" text="{Currency}" />
+					</Select>		
+				</form:content>
+			</form:SimpleForm>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

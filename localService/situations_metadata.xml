@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?><edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+	<edmx:Reference Uri="https://localhost/" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://localhost/" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://localhost/" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Alias="Communication" Namespace="com.sap.vocabularies.Communication.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://localhost/" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://localhost/" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Alias="PersonalData" Namespace="com.sap.vocabularies.PersonalData.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://localhost/" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://localhost/" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Alias="Analytics" Namespace="com.sap.vocabularies.Analytics.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://localhost/" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Alias="Measures" Namespace="Org.OData.Measures.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://localhost/" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="cds_c_sitninstancetp_cds" sap:schema-version="1" xml:lang="en">
+			<EntityType Name="C_SitnInstanceTPType" sap:content-version="1" sap:label="Enhanced SIT Instance Consumption">
+				<Key>
+					<PropertyRef Name="SitnInstanceID"/>
+				</Key>
+				<Property MaxLength="32" Name="SitnInstanceID" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Instance ID"/>
+				<Property MaxLength="32" Name="SitnDefinitionID" Type="Edm.String" sap:label="Situation Type ID"/>
+				<Property MaxLength="70" Name="SitnInstceAnchorObjectKey" Type="Edm.String" sap:display-format="UpperCase" sap:label="Anchor Obj. Key"/>
+				<Property MaxLength="70" Name="SitnInstceTriggerObjectKey" Type="Edm.String" sap:display-format="UpperCase" sap:label="Trigger Obj. Key"/>
+				<Property Name="CreationDateTime" Precision="7" Type="Edm.DateTimeOffset" sap:label="Occurred"/>
+				<Property MaxLength="2" Name="SitnDefRank" Type="Edm.String" sap:display-format="UpperCase" sap:label="Display Sequence"/>
+				<Property MaxLength="30" Name="SitnDefAnchorObject" Type="Edm.String" sap:label="Anchor Object"/>
+				<Property Name="SitnDefPageVariantIsEnabled" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Page Var. Enabled"/>
+				<Property MaxLength="32" Name="SitnDefTemplateID" Type="Edm.String" sap:label="Sitn Template ID"/>
+				<Property MaxLength="6" Name="SitnFioriID" Type="Edm.String" sap:display-format="UpperCase" sap:label="SAP Fiori ID"/>
+				<Property MaxLength="32" Name="SitnPageID" Type="Edm.String" sap:label="Page ID"/>
+				<Property MaxLength="32" Name="SitnElementID" Type="Edm.String" sap:label="Element ID"/>
+				<Property MaxLength="40" Name="SitnDefShortText" Type="Edm.String" sap:label="Sitn Short Text"/>
+				<Property MaxLength="255" Name="SitnDefLongText" Type="Edm.String" sap:label="Situation Type Long Text"/>
+				<Property MaxLength="255" Name="SitnDefDetailsLink" Type="Edm.String" sap:label="URL to Documentation"/>
+				<Property MaxLength="100" Name="SitnDefDetailsLinkText" Type="Edm.String" sap:label="Detail Link"/>
+				<Property MaxLength="40" Name="SitnDefName" Type="Edm.String" sap:label="Situation Name"/>
+				<Property MaxLength="30" Name="SitnTriggerObject" Type="Edm.String" sap:label="Trigger Object"/>
+				<Property MaxLength="32" Name="SitnDefPageVariantID" Type="Edm.String" sap:label="Page Variant ID"/>
+				<NavigationProperty FromRole="FromRole_assoc_9443BABBF4216354350E56278ADF2156" Name="to_ApplicationTag" Relationship="cds_c_sitninstancetp_cds.assoc_9443BABBF4216354350E56278ADF2156" ToRole="ToRole_assoc_9443BABBF4216354350E56278ADF2156"/>
+				<NavigationProperty FromRole="FromRole_assoc_D3F1770D4B6942B64C1E997345B42D31" Name="to_InstanceMessageParameter" Relationship="cds_c_sitninstancetp_cds.assoc_D3F1770D4B6942B64C1E997345B42D31" ToRole="ToRole_assoc_D3F1770D4B6942B64C1E997345B42D31"/>
+			</EntityType>
+			<EntityType Name="C_SitnInstceMessageParameterType" sap:content-version="1" sap:label="Situation Instance Message Parameter">
+				<Key>
+					<PropertyRef Name="SitnInstanceID"/>
+					<PropertyRef Name="SitnMsgTextVersion"/>
+					<PropertyRef Name="SitnMsgParamName"/>
+				</Key>
+				<Property MaxLength="32" Name="SitnInstanceID" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Instance ID"/>
+				<Property Name="SitnMsgTextVersion" Nullable="false" Type="Edm.Int32" sap:label="Version Msg. Details"/>
+				<Property MaxLength="5" Name="SitnMsgParamName" Nullable="false" Type="Edm.String" sap:label="Notif. Placeholder"/>
+				<Property Name="SitnMsgParamVal" Type="Edm.String" sap:label="Notif Parameter Val"/>
+				<Property MaxLength="20" Name="SitnMsgParamType" Type="Edm.String" sap:label="Parameter Value Type"/>
+				<Property MaxLength="32" Name="SitnDefinitionID" Type="Edm.String" sap:label="Situation Type ID"/>
+			</EntityType>
+			<EntityType Name="C_SitnInstceNavigationType" sap:content-version="1" sap:label="Instance-based navigation to object page">
+				<Key>
+					<PropertyRef Name="SitnInstanceID"/>
+				</Key>
+				<Property MaxLength="32" Name="SitnInstanceID" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Instance ID"/>
+				<Property MaxLength="50" Name="SitnSemanticObject" Type="Edm.String" sap:label="Semantic Object"/>
+				<Property MaxLength="50" Name="SitnSemanticObjectAction" Type="Edm.String" sap:label="Semantic Obj. Action"/>
+				<NavigationProperty FromRole="FromRole_assoc_D319EB1F7C42589BC88BFFABE54659E6" Name="to_NavigationParam" Relationship="cds_c_sitninstancetp_cds.assoc_D319EB1F7C42589BC88BFFABE54659E6" ToRole="ToRole_assoc_D319EB1F7C42589BC88BFFABE54659E6"/>
+			</EntityType>
+			<EntityType Name="C_SitnInstceNavigationParamType" sap:content-version="1" sap:label="Situation Instance Navigation Parameters">
+				<Key>
+					<PropertyRef Name="SitnInstanceID"/>
+					<PropertyRef Name="SituationNotifParamName"/>
+				</Key>
+				<Property MaxLength="32" Name="SitnInstanceID" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Instance ID"/>
+				<Property MaxLength="32" Name="SituationNotifParamName" Nullable="false" Type="Edm.String" sap:label="Navigation Parameter"/>
+				<Property Name="SituationNotifParameterVal" Type="Edm.String" sap:label="Notif Parameter Val"/>
+				<Property MaxLength="32" Name="SitnDefinitionID" Type="Edm.String" sap:label="Situation Type ID"/>
+			</EntityType>
+			<EntityType Name="C_SitnRelatedSituationType" sap:content-version="1" sap:label="Related Situation">
+				<Key>
+					<PropertyRef Name="SitnInstanceID"/>
+					<PropertyRef Name="SitnDefRelatedObjectID"/>
+				</Key>
+				<Property MaxLength="32" Name="SitnInstanceID" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Instance ID"/>
+				<Property MaxLength="4" Name="SitnDefRelatedObjectID" Nullable="false" Type="Edm.String" sap:display-format="NonNegative" sap:label="Related Object ID"/>
+				<Property MaxLength="32" Name="SitnDefinitionID" Type="Edm.String" sap:label="Situation Type ID"/>
+				<Property MaxLength="70" Name="SitnInstceReltdObjKey" Type="Edm.String" sap:display-format="UpperCase" sap:label="Related Object Key"/>
+				<Property MaxLength="30" Name="SitnDefReltdObjSOT" Type="Edm.String" sap:label="SAP Object Type"/>
+				<Property MaxLength="30" Name="SitnDefReltdObjSONT" Type="Edm.String" sap:label="SAP Obj Node Type"/>
+				<Property MaxLength="70" Name="SitnInstceAnchorObjectKey" Type="Edm.String" sap:display-format="UpperCase" sap:label="Anchor Obj. Key"/>
+				<Property MaxLength="70" Name="SitnAnchorObjectReadableID" Type="Edm.String" sap:display-format="UpperCase" sap:label="Anchor Object Key"/>
+				<Property Name="CreationDateTime" Precision="7" Type="Edm.DateTimeOffset" sap:label="Occurred"/>
+				<Property MaxLength="128" Name="SitnDefAnchorObjectDesc" Type="Edm.String" sap:display-format="UpperCase" sap:label="Anchor Object Type"/>
+				<Property MaxLength="40" Name="SitnDefShortText" Type="Edm.String" sap:label="Sitn Short Text"/>
+			</EntityType>
+			<EntityType Name="I_SitnDefApplicationTagType" sap:content-version="1" sap:label="Application Tag to Template assignment">
+				<Key>
+					<PropertyRef Name="SitnDefTemplateID"/>
+					<PropertyRef Name="SitnApplicationTag"/>
+				</Key>
+				<Property MaxLength="32" Name="SitnDefTemplateID" Nullable="false" Type="Edm.String" sap:label="Sitn Template ID"/>
+				<Property MaxLength="32" Name="SitnApplicationTag" Nullable="false" Type="Edm.String" sap:label="Application Tag"/>
+			</EntityType>
+			<ComplexType Name="DummyFunctionImportResult">
+				<Property Name="IsInvalid" Type="Edm.Boolean" sap:label="TRUE"/>
+			</ComplexType>
+			<Association Name="assoc_D319EB1F7C42589BC88BFFABE54659E6" sap:content-version="1">
+				<End Multiplicity="1" Role="FromRole_assoc_D319EB1F7C42589BC88BFFABE54659E6" Type="cds_c_sitninstancetp_cds.C_SitnInstceNavigationType"/>
+				<End Multiplicity="*" Role="ToRole_assoc_D319EB1F7C42589BC88BFFABE54659E6" Type="cds_c_sitninstancetp_cds.C_SitnInstceNavigationParamType"/>
+			</Association>
+			<Association Name="assoc_D3F1770D4B6942B64C1E997345B42D31" sap:content-version="1">
+				<End Multiplicity="1" Role="FromRole_assoc_D3F1770D4B6942B64C1E997345B42D31" Type="cds_c_sitninstancetp_cds.C_SitnInstanceTPType"/>
+				<End Multiplicity="*" Role="ToRole_assoc_D3F1770D4B6942B64C1E997345B42D31" Type="cds_c_sitninstancetp_cds.C_SitnInstceMessageParameterType"/>
+			</Association>
+			<Association Name="assoc_9443BABBF4216354350E56278ADF2156" sap:content-version="1">
+				<End Multiplicity="1" Role="FromRole_assoc_9443BABBF4216354350E56278ADF2156" Type="cds_c_sitninstancetp_cds.C_SitnInstanceTPType"/>
+				<End Multiplicity="*" Role="ToRole_assoc_9443BABBF4216354350E56278ADF2156" Type="cds_c_sitninstancetp_cds.I_SitnDefApplicationTagType"/>
+			</Association>
+			<EntityContainer Name="cds_c_sitninstancetp_cds_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+				<EntitySet EntityType="cds_c_sitninstancetp_cds.C_SitnInstanceTPType" Name="C_SitnInstanceTP" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/>
+				<EntitySet EntityType="cds_c_sitninstancetp_cds.C_SitnInstceMessageParameterType" Name="C_SitnInstceMessageParameter" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/>
+				<EntitySet EntityType="cds_c_sitninstancetp_cds.C_SitnInstceNavigationType" Name="C_SitnInstceNavigation" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/>
+				<EntitySet EntityType="cds_c_sitninstancetp_cds.C_SitnInstceNavigationParamType" Name="C_SitnInstceNavigationParam" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/>
+				<EntitySet EntityType="cds_c_sitninstancetp_cds.C_SitnRelatedSituationType" Name="C_SitnRelatedSituation" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/>
+				<EntitySet EntityType="cds_c_sitninstancetp_cds.I_SitnDefApplicationTagType" Name="I_SitnDefApplicationTag" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/>
+				<AssociationSet Association="cds_c_sitninstancetp_cds.assoc_D319EB1F7C42589BC88BFFABE54659E6" Name="assoc_D319EB1F7C42589BC88BFFABE54659E6" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false">
+					<End EntitySet="C_SitnInstceNavigation" Role="FromRole_assoc_D319EB1F7C42589BC88BFFABE54659E6"/>
+					<End EntitySet="C_SitnInstceNavigationParam" Role="ToRole_assoc_D319EB1F7C42589BC88BFFABE54659E6"/>
+				</AssociationSet>
+				<AssociationSet Association="cds_c_sitninstancetp_cds.assoc_9443BABBF4216354350E56278ADF2156" Name="assoc_9443BABBF4216354350E56278ADF2156" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false">
+					<End EntitySet="C_SitnInstanceTP" Role="FromRole_assoc_9443BABBF4216354350E56278ADF2156"/>
+					<End EntitySet="I_SitnDefApplicationTag" Role="ToRole_assoc_9443BABBF4216354350E56278ADF2156"/>
+				</AssociationSet>
+				<AssociationSet Association="cds_c_sitninstancetp_cds.assoc_D3F1770D4B6942B64C1E997345B42D31" Name="assoc_D3F1770D4B6942B64C1E997345B42D31" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false">
+					<End EntitySet="C_SitnInstanceTP" Role="FromRole_assoc_D3F1770D4B6942B64C1E997345B42D31"/>
+					<End EntitySet="C_SitnInstceMessageParameter" Role="ToRole_assoc_D3F1770D4B6942B64C1E997345B42D31"/>
+				</AssociationSet>
+				<FunctionImport Name="SelectPageVariant" ReturnType="cds_c_sitninstancetp_cds.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_c_sitninstancetp_cds.C_SitnInstanceTPType">
+					<Parameter MaxLength="32" Mode="In" Name="SitnInstanceID" Type="Edm.String"/>
+					<Parameter MaxLength="32" Mode="In" Name="SitnDefPageVariantID" Type="Edm.String"/>
+					<Parameter MaxLength="32" Mode="In" Name="Sitndefvariantname" Type="Edm.String"/>
+					<Parameter MaxLength="50" Mode="In" Name="Sitnnotifsemanticobject" Type="Edm.String"/>
+					<Parameter MaxLength="50" Mode="In" Name="Sitnnotifsemanticobjaction" Type="Edm.String"/>
+					<Parameter MaxLength="80" Mode="In" Name="Sitndefapplicationid" Type="Edm.String"/>
+				</FunctionImport>
+				<FunctionImport Name="SetStatusToDone" ReturnType="cds_c_sitninstancetp_cds.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_c_sitninstancetp_cds.C_SitnInstanceTPType">
+					<Parameter MaxLength="32" Mode="In" Name="SitnInstanceID" Type="Edm.String"/>
+					<Parameter MaxLength="2" Mode="In" Name="Status" Type="Edm.String"/>
+				</FunctionImport>
+				<FunctionImport Name="TrackInstanceDisplayed" ReturnType="cds_c_sitninstancetp_cds.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_c_sitninstancetp_cds.C_SitnInstanceTPType">
+					<Parameter MaxLength="32" Mode="In" Name="SitnInstanceID" Type="Edm.String"/>
+				</FunctionImport>
+				<FunctionImport Name="TrackInstanceIndicated" ReturnType="cds_c_sitninstancetp_cds.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_c_sitninstancetp_cds.C_SitnInstanceTPType">
+					<Parameter MaxLength="32" Mode="In" Name="SitnInstanceID" Type="Edm.String"/>
+				</FunctionImport>
+				<FunctionImport Name="TrackInstancePreviewed" ReturnType="cds_c_sitninstancetp_cds.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_c_sitninstancetp_cds.C_SitnInstanceTPType">
+					<Parameter MaxLength="32" Mode="In" Name="SitnInstanceID" Type="Edm.String"/>
+				</FunctionImport>
+				<FunctionImport Name="TrackInstceDspdFrmMngSitnTypes" ReturnType="cds_c_sitninstancetp_cds.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_c_sitninstancetp_cds.C_SitnInstanceTPType">
+					<Parameter MaxLength="32" Mode="In" Name="SitnInstanceID" Type="Edm.String"/>
+				</FunctionImport>
+				<FunctionImport Name="TrackInstceDspdFrmMySituations" ReturnType="cds_c_sitninstancetp_cds.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_c_sitninstancetp_cds.C_SitnInstanceTPType">
+					<Parameter MaxLength="32" Mode="In" Name="SitnInstanceID" Type="Edm.String"/>
+				</FunctionImport>
+				<FunctionImport Name="TrackInstceDspdFrmNotification" ReturnType="cds_c_sitninstancetp_cds.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_c_sitninstancetp_cds.C_SitnInstanceTPType">
+					<Parameter MaxLength="32" Mode="In" Name="SitnInstanceID" Type="Edm.String"/>
+				</FunctionImport>
+			</EntityContainer>
+			<Annotations Target="cds_c_sitninstancetp_cds.cds_c_sitninstancetp_cds_Entities">
+				<Annotation Bool="true" Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering"/>
+				<Annotation Term="Aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue EnumMember="None" Property="Rollup"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="cds_c_sitninstancetp_cds.cds_c_sitninstancetp_cds_Entities/C_SitnInstceMessageParameter">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="FilterExpressionRestrictions">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Property" PropertyPath="SitnMsgParamVal"/>
+									<PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>SitnMsgParamVal</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="cds_c_sitninstancetp_cds.cds_c_sitninstancetp_cds_Entities/C_SitnInstceNavigationParam">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="FilterExpressionRestrictions">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Property" PropertyPath="SituationNotifParameterVal"/>
+									<PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>SituationNotifParameterVal</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<atom:link href="http://localhost/DUMMY_SERVICE/$metadata" rel="self" xmlns:atom="http://www.w3.org/2005/Atom"/>
+			<atom:link href="http://localhost/DUMMY_SERVICE/$metadata" rel="latest-version" xmlns:atom="http://www.w3.org/2005/Atom"/>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

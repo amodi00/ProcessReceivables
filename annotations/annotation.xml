@@ -1,0 +1,75 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/opu/odata/sap/UI_PROCESSRECEIVABLES_MAN/$metadata">
+		<edmx:Include Alias="Metadata" Namespace="cds_ui_processreceivables_manage"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="PR.annotations.annotation.cds_ui_processreceivables_manage">
+			<Annotations Target="Metadata.CollectionsInvoiceType/DisputeCase">
+				<Annotation Term="Common.SemanticObject" String="DisputeCase"/>
+				<Annotation Term="UI.ExcludeFromNavigationContext"/>
+			</Annotations>
+			<Annotations Target="Metadata.CollectionsInvoiceType/PromiseToPay">
+				<Annotation Term="Common.SemanticObject" String="PromiseToPay"/>
+			</Annotations>
+			<Annotations Target="Metadata.CollectionsAccountType/Customer">
+				<Annotation Term="Common.SemanticObject" String="Customer"/>
+			</Annotations>
+			<Annotations Target="Metadata.CollectionsAccountType/BusinessPartner">
+				<Annotation Term="Common.SemanticObject" Qualifier="CorrespondenceMapping" String="Correspondence"/>
+				<Annotation Term="Common.SemanticObjectMapping" Qualifier="CorrespondenceMapping">
+					<Collection>
+						<Record Type="Common.SemanticObjectMappingType">
+							<PropertyValue Property="LocalProperty" PropertyPath="Customer"/>
+							<PropertyValue Property="SemanticObjectProperty" String="AccountNumber"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="Common.SemanticObject" Qualifier="CustomerMapping" String="Customer"/>
+			</Annotations>
+			<Annotations Target="Metadata.CollectionsInvoiceType/BillingDocument">
+				<Annotation Term="Common.SemanticObject" String="Correspondence" Qualifier="correspondence"/>
+			</Annotations>
+			<Annotations Target="Metadata.CollectionsInvoiceType/AccountingDocument">
+				<Annotation Term="Common.SemanticObjectMapping">
+					<Collection>
+						<Record Type="Common.SemanticObjectMappingType">
+							<PropertyValue Property="LocalProperty" PropertyPath="ReferenceDocumentLogicalSystem"/>
+							<PropertyValue Property="SemanticObjectProperty" String="sap-system"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="Common.SemanticObject" Qualifier="correspondence" String="Correspondence"/>
+			</Annotations>
+			<Annotations Target="Metadata.cds_ui_processreceivables_manage_Entities/RevokePromiseToPay">
+				<Annotation Term="Common.IsActionCritical" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Metadata.CollectionsAccountType">
+				<Annotation Term="Common.SideEffects" Qualifier="DeleteDefaultContact"> 
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="SourceEntities">
+							<Collection>
+								<NavigationPropertyPath>to_CollectionsContactDraft</NavigationPropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="TargetEntities">
+							<Collection>
+								<NavigationPropertyPath>to_CollectionsMainContact</NavigationPropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

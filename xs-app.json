@@ -1,0 +1,17 @@
+{
+    "authenticationMethod": "none",
+    "routes":
+    [
+    {
+    "authenticationType": "none",
+    "csrfProtection": false,
+    "source": "^/sap/opu/odata/",
+    "destination": "DS4_SAML_TWOHUNDRED_SAP"
+    },
+    {
+    "source": "^(.*)$",
+    "target": "$1",
+    "service": "html5-apps-repo-rt"
+    }
+    ]
+    }

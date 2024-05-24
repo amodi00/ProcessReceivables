@@ -1,0 +1,10 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:View controllerName="fin.ar.process.receivables.ext.controller.OutputItemsInvoice" id="OutputManagement" xmlns:core="sap.ui.core">
+
+      <core:ComponentContainer id="OutputManagementComponentContainer" propagateModel="true"/>
+
+</core:View>

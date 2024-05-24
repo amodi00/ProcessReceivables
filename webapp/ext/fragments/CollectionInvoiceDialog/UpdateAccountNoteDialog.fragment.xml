@@ -1,0 +1,47 @@
+<!--
+
+    Copyright (C) 2009-2023 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition
+    id="changeStickyNoteFragment"
+	class="sapUISizeCompact"
+	xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m">
+	<Dialog id="updateInvoiceNoteDlg"
+		title="{i18n>UpdateNotePlaceholder}">
+		<beginButton>
+			<Button
+				id="updateInvoiceNoteOK"
+				press="onUpdateAccountNoteConfirm"
+				type="Emphasized"
+				text="{i18n>OK}" />
+		</beginButton>
+		<endButton>
+			<Button
+				id="updateInvoiceNoteCancel"
+				press="onUpdateAccountNoteCancel"
+				text="{i18n>CANCEL}" />
+		</endButton>
+		<content>
+			<form:SimpleForm
+			    id="updateInvoiceNoteForm"
+			    editable="true"
+				breakpointL="1024"
+				breakpointM="600"
+				columnsL="2"
+				columnsM="2"
+				labelSpanL="2"
+				labelSpanM="2"
+				layout="ResponsiveGridLayout"
+				title="">
+				<form:content>
+					<TextArea id="updateInvoiceNoteTextArea" placeholder="{i18n>UpdateInvoiceNotePlaceholder}" value="{path: '/noteText'}" growing="true">
+						
+					</TextArea>
+				</form:content>
+			</form:SimpleForm>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>
